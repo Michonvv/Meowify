@@ -1,11 +1,14 @@
-// Sample song data (replace with your own cat cover songs)
-const songs = [
-    { title: "Careless Whisker", artist: "Micheal Whisker", src: "songs/CARELESS.mp3", cover: "cover-art/careless-whisker.png" },
-    { title: "Cat friends", artist: "Igor Alien", src: "songs/are_we_still_friends.mp3", cover: "cover-art/igor.jpeg" },
-    { title: "Redbone", artist: "Childish cat", src: "songs/redbone.mp3", cover: "cover-art/redbone.png" },
-    { title: "The cat from ipanema", artist: "Kitty", src: "songs/ipanema.mp3", cover: "cover-art/ipanem.jpg" },
-    { title: "Go Kitty Go!", artist: "The dancing cats", src: "songs/Go_kitty!.mp3", cover: "cover-art/gokitty.gif" }
-];
+
+
+fetch('songs.json')
+    .then(response => response.json())
+    .then(data => {
+        songs = data;
+        createSongGrid(songs);
+        loadSong(currentSongIndex);
+        updatePlayPauseIcon();
+    })
+    .catch(error => console.error('Error loading songs:', error));
 //https://via.placeholder.com/300?text=DEMO
 let currentSongIndex = 0;
 let isPlaying = false;
@@ -127,9 +130,29 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
     return `${minutes}:${secs}`;
 }
-
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+      if (isPlaying) {
+        audioPlayer.pause();
+    } else {
+        audioPlayer.play();
+    }
+    isPlaying = !isPlaying;
+    updatePlayPauseIcon();
+    }
+  })
 
 
 createSongGrid(songs);
 loadSong(currentSongIndex);
 updatePlayPauseIcon();
+
+currentSongTitle.textContent = ""; // Set default text
+currentSongArtist.textContent = ""; // Clear artist
+currentSongImage.src = "https://via.placeholder.com/56?text=play"; // Set a placeholder image
+
+console.log("%c🐾 Welcome to Meowify! 🎶", "font-size: 24px; color: #00FF7F; font-weight: bold");
+console.log("%cCreated by Michon van Vilsteren", "font-size: 16px; color: #00FF7F;");
+console.log("%cThanks for checking out the code! 🐱", "font-size: 18px; color: #FF69B4;");
+console.log("%cIf you have any suggestions, feel free to reach out!", "font-size: 16px; color: #FFD700;");
+console.log("%cHappy listening! 🎵🐾", "font-size: 20px; color: #FF69B4;");

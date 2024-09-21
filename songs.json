@@ -1,0 +1,7 @@
+[
+    { "title": "Careless Whisker", "artist": "Micheal Whisker", "src": "songs/CARELESS.mp3", "cover": "cover-art/careless-whisker.png" },
+    { "title": "Cat friends", "artist": "Igor Alien", "src": "songs/are_we_still_friends.mp3", "cover": "cover-art/igor.jpeg" },
+    { "title": "Redbone", "artist": "Childish cat", "src": "songs/redbone.mp3", "cover": "cover-art/redbone.png" },
+    { "title": "The cat from ipanema", "artist": "Kitty", "src": "songs/ipanema.mp3", "cover": "cover-art/ipanem.jpg" },
+    { "title": "Go Kitty Go!", "artist": "The dancing cats", "src": "songs/Go_kitty!.mp3", "cover": "cover-art/gokitty.gif" }
+]
