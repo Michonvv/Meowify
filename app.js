@@ -1,4 +1,4 @@
-
+let songs = [];
 
 fetch('songs.json')
     .then(response => response.json())
@@ -25,16 +25,31 @@ const searchButton = document.getElementById('search-button');
 const playbackBar = document.getElementById('playback-bar');
 const currentTimeLabel = document.getElementById('current-time');
 const totalTimeLabel = document.getElementById('total-time');
+const defaultFavicon = 'assets/logo.png'; // Path to your default favicon
+
 
 function loadSong(index) {
+    console.log("Loading song index:", index); // Add this line to check the index
+
     const song = songs[index];
+    if (!song) {
+        return; // Exit the function if song is undefined
+    }
     audioPlayer.src = song.src;
     currentSongTitle.textContent = song.title;
     currentSongArtist.textContent = song.artist;
     currentSongImage.src = song.cover;
+    updateFavicon(song.cover); // Update the favicon with the song cover
+
+    document.title = `${song.title} - Meowify`; // Update the page title
     if (isPlaying) {
         audioPlayer.play();
     }
+}
+
+function updateFavicon(src) {
+    const favicon = document.querySelector('link[rel="icon"]');
+    favicon.href = src; // Update the favicon with the song cover
 }
 
 function createSongGrid(songsToDisplay) {
@@ -134,6 +149,8 @@ document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
       if (isPlaying) {
         audioPlayer.pause();
+        updateFavicon(defaultFavicon);
+
     } else {
         audioPlayer.play();
     }
@@ -156,3 +173,6 @@ console.log("%cCreated by Michon van Vilsteren", "font-size: 16px; color: #00FF7
 console.log("%cThanks for checking out the code! 🐱", "font-size: 18px; color: #FF69B4;");
 console.log("%cIf you have any suggestions, feel free to reach out!", "font-size: 16px; color: #FFD700;");
 console.log("%cHappy listening! 🎵🐾", "font-size: 20px; color: #FF69B4;");
+window.onload = () => {
+    updateFavicon(defaultFavicon);
+};
