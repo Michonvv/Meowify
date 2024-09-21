@@ -151,7 +151,7 @@ currentSongTitle.textContent = ""; // Set default text
 currentSongArtist.textContent = ""; // Clear artist
 currentSongImage.src = "https://via.placeholder.com/56?text=play"; // Set a placeholder image
 
-console.log("%c🐾 Welcome to Meowify! 🎶", "font-size: 24px; color: #00FF7F; font-weight: bold");
+console.log("%c🐾 Welcome to miauwify! 🎶", "font-size: 24px; color: #00FF7F; font-weight: bold");
 console.log("%cCreated by Michon van Vilsteren", "font-size: 16px; color: #00FF7F;");
 console.log("%cThanks for checking out the code! 🐱", "font-size: 18px; color: #FF69B4;");
 console.log("%cIf you have any suggestions, feel free to reach out!", "font-size: 16px; color: #FFD700;");
