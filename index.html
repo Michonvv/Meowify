@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>miauwify - Cat music space</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link id="favicon" rel="icon" type="image/png" href="assets/logo.png">
-    <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #121212;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #535353;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #7f7f7f;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Miauwify - Your platfrom for cat music.">
+        <meta name="keywords" content="Cat Music, Miauwify, Streaming, Playlist, Music Player">
+        <meta name="author" content="Michon">
+        
+        <title>Miauwify - Cat music space</title>
+    
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+        <!-- FontAwesome for icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    
+        <!-- Favicon (logo) -->
+        <link id="favicon" rel="icon" type="image/png" href="assets/logo.png">
+    
+        <!-- Open Graph tags for social media sharing -->
+        <meta property="og:title" content="Miauwify - Cat music space">
+        <meta property="og:description" content="A delightful space where you can enjoy cat-inspired music.">
+        <meta property="og:image" content="assets/og-image.png">
+        <meta property="og:url" content="https://miauwify.netlify.app/">
+        <meta name="twitter:card" content="summary_large_image">
+    
+        <!-- Custom CSS for your site -->
+        <style>
+            /* Background gradient for the entire page */
+            body {
+                font-family: 'Poppins', sans-serif;
+                color: #fff;
+            }
+    
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 600;
+            }
+    
+            /* Custom scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #121212;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #535353;
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7f7f7f;
+            }
+    
+        </style>
+    </head>
+    
 <body class="bg-[#121212] text-white">
     <div class="flex h-screen">
         <!-- Sidebar -->
@@ -50,11 +86,11 @@
                         </a>
                     </li>
                     <li class="flex items-center space-x-4 text-gray-400 hover:text-white">
-                        <a href="index.html" class="flex items-center space-x-4">
+                        <a href="backlog.html" class="flex items-center space-x-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
                             </svg>
-                            <span>Your Library</span>
+                            <span>Backlog / updates</span>
                         </a>
                     </li>
                 </ul>
@@ -104,14 +140,17 @@
 
             <!-- Song grid -->
             <div class="flex-1 overflow-y-auto p-8">
-                <h2 class="text-4xl font-bold mb-4">specially for you</h2>
+                <h2 class="text-3xl font-bold mb-4">specially for you</h2>
                 <div id="song-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     <!-- Songs will be populated here by JavaScript -->
                 </div>
+
                 <div class="mt-12 text-gray-400 text-center ">
-                    <p class="text-xl mb-1">If you have more funny songs to add, feel free to <a href="mailto:your-email@example.com" class="text-white underline">contact me</a>!</p>
-                    <p>Made with <span class="text-red-500"><3</span> by <a href="michonvv.framer.ai" class="decoration-none" target="_blank">Michon</a></p>
+                    <p class="text-xl mb-1">If you have more funny song suggestions, feel free to let us know!</a>!</p>
+                    <p>Made with <span class="text-red-500"><3</span> by <a href="https://michonvv.framer.ai" class="decoration-none" target="_blank">Michon</a></p>
+
                 </div>
+                <div id="disqus_thread" class="pt-10"></div>
             </div>
         </main>
     </div>
@@ -160,5 +199,27 @@
         <audio id="audio-player"></audio>
     </footer>
     <script src="app.js"></script>
+    <script id="dsq-count-scr" src="//miauwify.disqus.com/count.js" async></script>
+
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://miauwify.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <script src="offline.js"></script>
+    <script src="serviceworker.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>
 </html>
